@@ -1,0 +1,207 @@
+u	pi	USN2010	NRC95	Region  	institution
+1	2.23	1	1	West     	Stanford University
+2	2.31	1	3	West     	UC Berkeley
+3	3.52	1	2	Northeast	MIT
+4	5.24	11	12	West     	California Institute of Technology
+5	6.12	17	11	Northeast	Harvard University
+6	8.29	5	5	Northeast	Cornell University
+7	9.28	1	4	Northeast	Carnegie Mellon University
+8	9.32	8	6	Northeast	Princeton University
+9	9.98	20	14	Northeast	Yale University
+10	11.06	7	9	West     	University of Washington
+11	13.43	5	8	Midwest  	University of Illinois, Urbana Champaign
+12	14.12	11	10	Midwest  	University of Wisconsin, Madison
+13	15.31	17	22	Northeast	University of Pennsylvania
+14	16.44	20	18	South    	Rice University
+15	17.82	14	14	West     	UCLA
+16	18.23	28	16	Northeast	New York University
+17	18.82	35	22	Midwest  	University of Chicago
+18	19.44	8	7	South    	University of Texas, Austin
+19	21.92	20	13	Northeast	Brown University
+20	22.53	17	21	Northeast	Columbia University
+21	24.79	.	92	Canada   	University of Toronto
+22	25.64	47	27	Northeast	University of Rochester
+23	26.17	20	19	West     	University of Southern California
+24	26.30	28	34	South    	Johns Hopkins University
+25	26.95	20	17	Northeast	University of Massachusetts, Amherst
+26	27.93	14	21	West     	UC San Diego
+27	28.65	14	15	South    	University of Maryland, College Park
+28	29.37	13	20	Midwest  	University of Michigan
+29	29.55	20	26	South    	University of North Carolina, Chapel Hill
+30	30.50	27	25	South    	Duke University
+31	36.01	44	28	Northeast	State University of New York, Stony Brook
+32	37.36	28	31	West     	UC Irvine
+33	37.90	44	51	Northeast	Dartmouth College
+34	38.11	28	32	South    	University of Virginia
+35	38.27	20	23	Midwest  	Purdue University
+36	38.94	35	43	Midwest  	University of Minnesota, Minneapolis
+37	39.69	10	29	South    	Georgia Tech
+38	40.46	28	24	Northeast	Rutgers University
+39	40.57	47	30	West     	University of Arizona
+40	41.22	28	50	Northeast	Pennsylvania State University
+41	42.17	28	36	Midwest  	Ohio State University
+42	44.47	35	35	Midwest  	Northwestern University
+43	46.40	39	48	Midwest  	Washington University, St. Louis
+44	46.81	53	39	Northeast	University of Pittsburgh
+45	51.73	47	52	Northeast	Boston University
+46	51.75	.	92	Canada   	University of British Columbia
+47	54.86	63	57	West     	University of Oregon
+48	56.74	63	40	Northeast	Syracuse University
+49	56.76	35	44	West     	UC Santa Barbara
+50	59.10	39	37	West     	University of Utah
+51	61.39	39	52	West     	UC Davis
+52	63.14	47	56	South    	Texas A&M
+53	64.97	110	66	South    	University of Houston
+54	66.24	58	49	Midwest  	Michigan State University
+55	67.81	.	92	Canada   	University of Waterloo
+56	68.17	39	37	West     	University of Colorado, Boulder
+57	69.84	.	92	Canada   	McGill University
+58	70.04	79	92	Northeast	CUNY Graduate Center
+59	70.82	63	60	Midwest  	Case Western Reserve University
+60	71.14	53	92	West     	UC Riverside
+61	74.40	79	75	Midwest  	University of Kansas, Lawrence
+62	74.98	79	82	South    	Florida State University
+63	75.20	79	92	South    	College of William and Mary
+64	76.47	99	83	Northeast	Lehigh University
+65	78.54	.	92	Canada   	University of Montreal
+66	78.97	.	92	Canada   	Simon Fraser University
+67	79.33	58	47	Midwest  	University of Illinois, Chicago
+68	79.33	99	92	Midwest  	University of Cincinnati
+69	79.49	53	46	West     	UC Santa Cruz
+70	79.68	47	45	Northeast	Rensselaer Polytechnic Institute
+71	80.22	110	78	South    	Southern Methodist University
+72	81.51	91	72	South    	University of Central Florida
+73	81.65	79	92	West     	University of New Mexico
+74	81.90	47	53	South    	North Carolina State University
+75	82.16	61	52	Northeast	State University of New York, Buffalo
+76	82.40	99	89	Northeast	Stevens Institute of Technology
+77	83.35	79	70	West     	Washington State University, Pullman
+78	84.01	.	92	Canada   	McMaster University
+79	84.55	72	92	Northeast	Brandeis University
+80	86.24	.	92	Canada   	University of Alberta
+81	87.19	79	60	South    	George Washington University
+82	87.42	72	92	Northeast	Polytechnic Institute of NYU
+83	87.49	63	55	Midwest  	University of Iowa
+84	87.66	72	92	South    	University of Delaware
+85	92.45	63	68	Midwest  	Iowa State University
+86	92.50	58	64	South    	Vanderbilt University
+87	94.94	39	42	South    	University of Florida
+88	97.34	63	92	South    	George Mason University
+89	98.80	63	92	Midwest  	University of Notre Dame
+90	99.58	110	69	Midwest  	Wayne State University
+91	100.27	.	92	Canada   	University of Calgary
+92	100.62	127	63	South    	University of Louisiana, Lafayette
+93	100.90	.	92	Canada   	University of Western Ontario
+94	101.73	.	92	Canada   	Carleton University
+95	101.86	.	92	Canada   	Queens University
+96	102.07	110	92	Midwest  	University of Wisconsin, Milwaukee
+97	102.17	99	68	South    	Louisiana State University
+98	106.62	99	74	South    	University of Texas, Arlington
+99	107.42	.	92	Canada   	University of Ottawa
+100	108.32	72	80	Northeast	University of Connecticut
+101	108.71	79	38	West     	Oregon Health and Science University
+102	108.72	53	54	West     	Arizona State University
+103	109.31	99	71	Midwest  	Kansas State University
+104	110.18	91	92	Northeast	State University of New York, Albany
+105	111.94	99	61	South    	University of South Florida
+106	112.40	44	59	South    	Virginia Tech
+107	113.61	.	92	West     	Portland State University
+108	113.75	99	81	South    	University of South Carolina
+109	113.87	121	92	Midwest  	Missouri University of Science and Technology
+110	116.24	110	87	South    	University of Oklahoma
+111	116.75	53	33	Midwest  	Indiana University
+112	117.72	110	79	Midwest  	Illinois Institute of Technology
+113	119.03	63	92	South    	University of Tennessee, Knoxville
+114	120.24	.	92	South    	University of Miami
+115	120.85	91	92	Northeast	New Jersey Institute of Technology
+116	123.11	91	58	South    	University of Kentucky
+117	124.35	110	90	Northeast	State University of New York, Binghamton
+118	124.60	79	92	West     	Colorado State University
+119	125.51	.	92	West     	University of Colorado, Denver
+120	125.87	79	67	South    	University of Texas, Dallas
+121	126.00	.	92	Northeast	University of Rhode Island
+122	126.16	.	92	Midwest  	Toyota Technological Institute at Chicago
+123	126.69	91	92	South    	Auburn University
+124	127.37	99	92	Northeast	Drexel University
+125	127.72	63	62	West     	Oregon State University
+126	129.12	.	92	Canada   	University of Manitoba
+127	130.03	.	92	Canada   	University of Regina
+128	130.66	79	65	Midwest  	University of Nebraska, Lincoln
+129	130.86	.	92	Canada   	University of Saskatchewan
+130	131.20	127	92	South    	Florida Atlantic University
+131	133.22	.	92	South    	University of Texas, San Antonio
+132	133.81	.	92	West     	University of Denver
+133	134.13	72	78	South    	University of Maryland, Baltimore County
+134	134.48	127	92	Midwest  	Oakland University (Michigan)
+135	135.62	127	92	Northeast	University of Maine
+136	137.31	.	92	Northeast	Clarkson University
+137	137.49	121	69	West     	New Mexico State University
+138	137.66	127	92	South    	University of Memphis
+139	137.87	.	92	Canada   	University of Victoria
+140	138.05	.	92	Canada   	Concordia University, Montreal
+141	138.72	127	92	Midwest  	University of Missouri, Kansas City
+142	139.45	110	92	Midwest  	University of Missouri, Columbia
+143	139.97	.	92	Canada   	Dalhousie University
+144	139.99	.	92	South    	Virginia Commonwealth University
+145	140.75	91	89	Northeast	Worcester Polytechnic Institute
+146	142.05	127	77	South    	Old Dominion University
+147	142.20	.	92	South    	University of Texas, El Paso
+148	142.23	72	73	West     	Naval Postgraduate School
+149	143.20	.	92	Northeast	University of Massachusetts, Boston
+150	144.80	.	92	West     	University of Wyoming
+151	145.24	.	92	Canada   	York University
+152	145.66	91	92	South    	University of Georgia
+153	146.44	121	85	South    	Mississippi State University
+154	146.50	72	92	Northeast	Tufts University
+155	146.92	127	92	South    	Florida International University
+156	148.23	.	92	Midwest  	Southern Illinois University, Carbondale
+157	150.08	.	92	Midwest  	Ohio University
+158	150.95	121	92	West     	Claremont Graduate University
+159	151.04	.	92	South    	Catholic University of America
+160	151.45	79	92	South    	Clemson University
+161	151.46	127	84	Northeast	University of Massachusetts, Lowell
+162	151.76	127	92	South    	Oklahoma State University
+163	152.67	99	92	South    	University of North Carolina, Charlotte
+164	153.44	127	84	South    	University of Alabama, Birmingham
+165	153.65	.	92	West     	Santa Clara University
+166	154.88	127	92	West     	University of Hawaii, Manoa
+167	156.16	110	62	Northeast	Temple University
+168	156.35	.	92	Midwest  	University of Toledo
+169	156.45	127	92	Midwest  	Michigan Technological University
+170	156.98	.	92	Northeast	University of New Hampshire
+171	157.66	.	92	West     	Montana State University
+172	158.12	.	92	Canada   	University of New Brunswick
+173	159.20	121	92	Midwest  	Wright State University
+174	163.13	.	92	Midwest  	Western Michigan University
+175	163.79	61	92	Northeast	Northeastern University
+176	163.89	127	76	South    	University of Alabama, Huntsville
+177	164.22	127	92	West     	University of Idaho, Moscow
+178	164.46	121	92	South    	Texas Tech University
+179	164.68	127	92	South    	University of Tulsa
+180	165.50	127	92	South    	University of Mississippi
+181	166.53	91	92	West     	Brigham Young University
+182	168.42	.	92	Northeast	Long Island University
+183	169.02	127	92	South    	University of Southern Mississippi
+184	169.16	.	92	West     	University of Colorado, Colorado Springs
+185	169.65	110	92	West     	Colorado School of Mines
+186	169.71	99	92	South    	Georgia State University
+187	171.62	.	92	West     	University of Nevada, Las Vegas
+188	171.68	127	86	Midwest  	Kent State University
+189	173.29	.	92	Canada   	Memorial University of Newfoundland
+190	173.75	.	92	West     	Utah State University
+191	174.47	127	92	Midwest  	DePaul University
+192	176.03	127	92	Midwest  	North Dakota State University
+193	178.55	127	92	South    	Nova Southeastern University
+194	178.70	127	92	South    	University of Arkansas, Fayetteville
+195	178.73	.	92	Northeast	University of Bridgeport
+196	179.12	127	92	South    	University of Louisville
+197	179.97	.	92	Midwest  	University of Nebraska, Omaha
+198	180.75	127	92	South    	Florida Institute of Technology
+199	181.14	.	92	South    	University of Arkansas, Little Rock
+200	181.68	.	92	Northeast	Rochester Institute of Technology
+201	182.16	.	92	Northeast	Pace University
+202	182.28	127	91	West     	New Mexico Institute of Mining and Technology
+203	182.47	.	92	West     	University of Nevada, Reno
+204	186.81	127	92	South    	University of Alabama, Tuscaloosa
+205	186.84	127	82	South    	University of North Texas, Denton
+206	206.00	.	.	Earth    	All others
