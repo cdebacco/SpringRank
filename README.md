@@ -22,14 +22,14 @@ Need to make a directory called `data` at the same level of the `python` folder.
 To make one, just type from the command line, inside that folder: 
 * `mkdir data`
 
-### Input format.
+#### Input format.
 The directed adjacency matrix should be formatted as an edge list with 3 columns:
 
 `node1 node2 3 `
 
 The first and second columns are the source and target nodes of that edge, respectively; the third is the edge weigth (must be integer). In this example the edge node1 --> node2 exists with weight 3.
 
-### Output.
+#### Output.
 One file will be generated inside the `data` folder containg the SpringRank scores ordered from highest to lowest. The output file will be inside `data` folder with names:
 - `networkname_SpringRank_a0.0_l0_1.0_l1_1.0.dat`  for the case `alpha=0` and `l_0=l_1=1.0`. 
 
