@@ -29,4 +29,4 @@ for i=1:N
     end
 end
 % draw poisson random numbers from P and return
-A = poissrnd(P);
+A = sparse(poissrnd(P));
