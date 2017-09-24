@@ -23,7 +23,7 @@
 % choose preferred degree
 deg = 5;
 % choose inverse temperature beta
-beta0 = 0.4;
+beta0 = 1.4;
 % choose number of nodes N
 N = 102;
 
