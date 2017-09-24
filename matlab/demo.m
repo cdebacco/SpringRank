@@ -23,7 +23,7 @@
 % choose preferred degree
 deg = 5;
 % choose inverse temperature beta
-beta0 = 1.4;
+beta0 = 0.4;
 % choose number of nodes N
 N = 102;
 
@@ -102,3 +102,9 @@ fprintf('%f seconds.\n',toc)
 fprintf('Computing beta values.')
 beta_local = betaLocal(A,s_spr);
 beta_global = betaGlobal(A,s_spr);
+
+%% 4. Computer accuracy via cross-validation
+[sig_a,sig_L] = crossValidation(A,5,1);
+
+%% 5. Test whether the network's hierarchy is statistically significant
+[p,H0,H] = pvalueNullModel(A,100);

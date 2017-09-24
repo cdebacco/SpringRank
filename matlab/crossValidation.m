@@ -46,9 +46,10 @@ M = length(v);
 % Size of each fold
 foldSize = floor(M/folds);
 
-% preallocate
-sig_a = zeros(reps*folds,3);
-sig_L = zeros(reps*folds,3);
+% preallocate; note that DIM2 should be increased if you are testing more
+% than one method.
+sig_a = zeros(reps*folds,1);
+sig_L = zeros(reps*folds,1);
 
 % iterate over reps
 for rep = 1:reps
@@ -64,6 +65,9 @@ for rep = 1:reps
     
     % iterate over folds
     for f = 1:folds
+        % Print
+        fprintf('Cross validation progress: Rep %i/%i, Fold %i/%i.\n',...
+            rep,reps,f,folds);
         % bookkeeping
         foldrep = f+(rep-1)*folds;
         % build the testset of indices
@@ -108,7 +112,5 @@ for rep = 1:reps
         % % BTL accuracies on TEST set
         % sig_a(foldrep,3) = localAccuracy_BTL(TEST,bt);
         % sig_L(foldrep,3) = -globalAccuracy_BTL(TEST,bt)/numTestEdges;
-        
-        fprintf('Cross validation progress: Rep %i, Fold %i.\n',rep,f);
     end
 end
