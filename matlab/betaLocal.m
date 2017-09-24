@@ -23,8 +23,7 @@ function [b] = betaLocal(A,s)
 global M r
 M = A;
 r = s;
-% minimize -1*accuracy for some b between 1e-6 and 500:
-b = fminbnd(@negacc,1e-6,500);
+b = fminbnd(@negacc,1e-6,1000);
 end
 
 function [a] = negacc(b)

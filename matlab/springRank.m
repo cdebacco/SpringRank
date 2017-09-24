@@ -51,8 +51,14 @@ B = Dout + Din - A(1:N-1,1:N-1) - transpose(A(1:N-1,1:N-1))...
     - repmat(A(N,1:N-1),N-1,1) - repmat(transpose(A(1:N-1,N)),N-1,1);
 b = diag(Dout)-diag(Din)+dNout-dNin;
 
-% Sparse solve. Use [t,~] to supprsee warnings. 
+% Sparse solve. Use [t,~] to suppress warnings. 
 [t,~] = bicgstab(B,b,1e-12,200);
 
 % ranks
 s = [t;0];
+
+% adjust mean of each component to be 0
+[nComponents,~,members] = networkComponents(A);
+for n = 1:nComponents
+    s(members{n}) = s(members{n})-mean(s(members{n}));
+end

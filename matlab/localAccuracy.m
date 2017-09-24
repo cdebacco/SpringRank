@@ -7,7 +7,7 @@
 % daniel.larremore@colorado.edu
 % http://danlarremore.com
 %
-% b = betaGlobal(A,s,varargin)
+% a = localAccuracy(A,s,b)
 %
 %   INPUTS:
 % A is a NxN matrix representing a directed network
@@ -15,27 +15,27 @@
 %   A(i,j) = # of dominance interactions by i toward j. 
 %   A(i,j) = # of times that j endorsed i.
 % s is the Nx1 vector of node positions (ranks)
+% b is the inverse temperature (called beta in the paper)
 %
 %   OUTPUTS:
-% b is the optimal inverse temperature (beta) under the GLOBAL accuracy,
-%   which we call \sigma_\ell in the paper.
+% a is the local accuracy (called \sigma_a in the paper)
 
-function [b] = betaGlobal(A,s)
-global M r
-M = A;
-r = s;
-b = fzero(@f,0.1);
-end
+function a = localAccuracy(A,s,b)
+% total edges
+m = sum(sum(A));
 
-function [y] = f(b)
-global M r
-n = length(r);
+% number of vertices
+n = length(s);
+
+% accumulate accuracy of predictions
 y = 0;
 for i=1:n
     for j=1:n
-        d = r(i) - r(j);
-        pij = (1+exp(-2*b*d))^(-1);
-        y = y + d*(M(i,j) - (M(i,j)+M(j,i))*pij);
+        d = s(i) - s(j);
+        p = (1+exp(-2*b*d))^(-1);
+        y = y + abs( A(i,j)-( A(i,j) + A(j,i) )*p );
     end
 end
-end
+
+% cleanup
+a = 1-0.5*y/m;
