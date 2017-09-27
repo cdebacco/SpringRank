@@ -2,7 +2,14 @@
 
 Calculates SpringRank from directed networks or pairwise comparisons.
 
-Paper preprint available [here](http://danlarremore.com/pdf/SpringRank_2017_PrePrint.pdf).
+Implements the model described in:
+
+* [1] C. De Bacco, D. B. Larremore and C. Moore, *A physical model for efficient ranking in networks*, arxiv/1709.09002, 2017
+
+Paper preprint available [here](https://arxiv.org/abs/1709.09002) and [here](http://danlarremore.com/pdf/SpringRank_2017_PrePrint.pdf).
+
+If you use this code please cite [1].
+
 
 Copyright (c) 2017 Caterina De Bacco and [Daniel B Larremore](http://danlarremore.com)
 
