@@ -39,14 +39,6 @@ Din = diag(din(1:N-1));
 dNout = dout(N);
 dNin = din(N);
 
-% See paper Supplementary Text for why we create this matrix M
-% The gist of it: we're fixing the position of vertex N to be = 0.
-% Could be faster, probably.
-for i=1:N-1
-    for j=1:N-1
-        M(i,j) = A(i,j) + A(j,i) + A(N,j) + A(j,N);
-    end
-end
 B = Dout + Din - A(1:N-1,1:N-1) - transpose(A(1:N-1,1:N-1))...
     - repmat(A(N,1:N-1),N-1,1) - repmat(transpose(A(1:N-1,N)),N-1,1);
 b = diag(Dout)-diag(Din)+dNout-dNin;
