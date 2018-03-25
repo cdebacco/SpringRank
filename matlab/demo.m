@@ -41,7 +41,7 @@ for i=1:N
 end
 spr(1:N+1:end) = 0;
 % expected degrees at inverse temperature B(i)
-M = summ(exp(-beta0/2*spr));
+M = sum(sum(exp(-beta0/2*spr)));
 % adjust c to give expected degrees = k*n;
 c = deg*N/M;
 % create network using generative model
