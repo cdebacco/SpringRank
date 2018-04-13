@@ -1,4 +1,4 @@
-/* this module implements the SpringRank routine of Larrimore, based on his
+/* this module implements the SpringRank routine of Larremore, based on his
    github matlab code.  Note that as implemented it assumes a connected
    component.
   
