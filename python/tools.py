@@ -30,3 +30,37 @@ def shift_rank(ranks):
     N=len(ranks)
     for i in range(N): ranks[i]=ranks[i]-min_r
     return ranks    
+
+def btl(A,tol):
+    N = np.shape(A)[0]
+    g = np.random.rand(N)
+    wins = np.array(np.sum(A,axis=1)).flatten();
+    matches = np.array(A+np.transpose(A));
+    totalMatches = np.array(np.sum(matches,axis=0)).flatten()
+    g_prev = np.random.rand(N)
+    eps = 1e-6
+    while np.linalg.norm(g-g_prev) > tol:
+        g_prev = g
+        for i in range(N):
+            if totalMatches[i]>0:
+                q = np.divide(matches[i,:],g_prev[i]+g_prev)
+                q[i] = 0
+                g[i] = (wins[i]+eps)/np.sum(q)
+            else:
+                g[i] = 0
+        g = np.log(g/np.sum(g))
+    return g
+
+def eqs39(beta,s,A):
+    N = np.shape(A)[0]
+    x = 0
+    for i in range(N):
+        for j in range(N):
+            if A[i,j] == 0:
+                continue
+            else:
+                x += (s[i]-s[j]) * ( A[i,j] - (A[i,j]+A[j,i]) / (1+np.exp(-2*beta*(s[i]-s[j]))) )
+    return x
+
+def get_optimal_temperature(ranks,A):    
+    return brentq(eqs39,0.01,20,args=(ranks,A))
