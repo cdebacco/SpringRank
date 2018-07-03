@@ -1,4 +1,6 @@
 import networkx as nx
+import numpy as np
+from scipy.optimize import brentq
 
 def build_graph_from_adjacency(inadjacency):
     """
