@@ -50,8 +50,8 @@ def btl(A,tol):
                 g[i] = (wins[i]+eps)/np.sum(q)
             else:
                 g[i] = 0
-        g = np.log(g/np.sum(g))
-    return g
+        g = g/np.sum(g)
+    return np.log(g)
 
 def eqs39(beta,s,A):
     N = np.shape(A)[0]
