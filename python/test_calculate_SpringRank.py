@@ -33,7 +33,7 @@ Extracts SpringRank
 '''
 rank=sr.SpringRank(A,alpha=alpha,l0=l0,l1=l1)
 
-rank=tl.shift_rank(rank)   # shifts so that the min is in zero and the others are positive
+rank=tl.shift_rank(rank)   # (optional) shifts so that the min is in zero and the others are positive
 
 '''
 Order results so that the first node is the highest-ranked one
