@@ -18,8 +18,8 @@ spring_rank <- function(A, alpha = 0, l0 = 1.0, l1 = 1.0, shift = TRUE) {
   #' vector for ordinal rankings of each node.
 
   if (class(A) == "matrix") {
-   # coerce dense matrix to sparse matrice so the user doesn't have to.
-   A <- as(Matrix(A, sparse = TRUE, doDiag = FALSE), "dgCMatrix")
+    # coerce dense matrix to sparse matrice so the user doesn't have to.
+    A <- as(Matrix(A, sparse = TRUE, doDiag = FALSE), "dgCMatrix")
   } else {
     # confirm it's the right kind of sparse matrix. might throw an error
     # if it's one of the less common sparse matrix types.
@@ -45,24 +45,9 @@ spring_rank <- function(A, alpha = 0, l0 = 1.0, l1 = 1.0, shift = TRUE) {
 
     B = One * l0 + D2 %*% One
     A_ = alpha * diag(nrow = N, ncol = N) + D1 - C
-
-    solvable = class(try(as.matrix(solve(A_, B)), silent = T)) == "matrix"
-    if (solvable)
-    {
-      print("using solve")
-      rank <- solve(A_, B)
-    } else {
-      print("using bigcstab")
-      rank <- Rlinsolve::lsolve.bicgstab(A_, B, verbose = F)
-      rank <- rank$x
-    }
-
-    if (shift) {
-      rank <- rank - min(rank)
-    }
-
   } else {
     print("fixing a rank degree of freedom")
+
     C <- C +
       matrix(rep(A[N,] , times = N),
              ncol = N,
@@ -72,6 +57,7 @@ spring_rank <- function(A, alpha = 0, l0 = 1.0, l1 = 1.0, shift = TRUE) {
              ncol = N,
              nrow = N,
              byrow = T)
+
     D3 <- as(Matrix(0, ncol = N, nrow = N), "dgCMatrix")
     for (i in 1:N) {
       D3[i, i] <- l1 * (k_out[N] - k_in[N])
@@ -79,15 +65,16 @@ spring_rank <- function(A, alpha = 0, l0 = 1.0, l1 = 1.0, shift = TRUE) {
 
     B <- D2 %*% One + D3 %*% One
     A_ <- D1 - C
-
-    rank <- solve(A_, B)
-
-    if (shift) {
-      rank <- rank - min(rank)
-    }
   }
 
-  # matrix to vector, so we can use names()
+  rank <- lsolve.bicgstab(A_, B, verbose = F)
+  rank <- rank$x
+
+  if (shift) {
+    rank <- rank - min(rank)
+  }
+
+  # coerce matrix to vector, so we can use names()
   rank <- rank[,1]
   names(rank) <- colnames(A)
   return(rank)
