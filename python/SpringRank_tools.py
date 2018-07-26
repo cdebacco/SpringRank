@@ -3,7 +3,7 @@ import numpy as np
 import scipy.sparse
 import scipy.sparse.linalg
 
-def SpringRank(A,alpha=0.,l0=1.0,l1=1.0):
+def SpringRank(A,alpha=0.,l0=1.0,l1=1.0,solver='bicgstab',verbose=False):
     """
     Main routine to calculate SpringRank by solving linear system
     Default parameters are initialized as in the standard SpringRank model
@@ -14,6 +14,8 @@ def SpringRank(A,alpha=0.,l0=1.0,l1=1.0):
         alpha: controls the impact of the regularization term
         l0: regularization spring's rest length
         l1: interaction springs' rest length
+        solver: linear system solver. Options: 'spsolve'(direct, slower) or 'bicgstab' (iterative, faster)
+        verbose: if True, then outputs some info about the numerical solvers
 
     OUTPUT:
         
@@ -34,24 +36,27 @@ def SpringRank(A,alpha=0.,l0=1.0,l1=1.0):
         D2[i,i]=l1*(k_out[i,0]-k_in[0,i])
 
     if alpha!=0.: 
-        print('Using alpha!=0: matrix is invertible')
+        if verbose==True:print('Using alpha!=0: matrix is invertible')
 
         B=One*alpha*l0+np.dot(D2,One)
         A=alpha*np.eye(N)+D1-C
         A=scipy.sparse.csr_matrix(np.matrix(A))
 
-        try:
-            print('Trying scipy.sparse.linalg.spsolve(A,B)')
+        if solver=='spsolve':
+            if verbose==True:print('Using scipy.sparse.linalg.spsolve(A,B)')
             rank = scipy.sparse.linalg.spsolve(A,B)
             # rank=np.linalg.solve(A,B)  # cannot use it with sparse matrices
             return np.transpose(rank)
-        except: 
-            print('Switched to scipy.sparse.linalg.bicgstab(A,B)[0]')
+        elif solver=='bicgstab': 
+            if verbose==True:print('Using scipy.sparse.linalg.bicgstab(A,B)')
             rank=scipy.sparse.linalg.bicgstab(A,B)[0]
             return np.transpose(rank)
+        else:
+            print('Using scipy.sparse.linalg.bicgstab(A,B)')
+            rank=scipy.sparse.linalg.bicgstab(A,B)[0]   
 
     else:    
-        print('Using faster computation: fixing a rank degree of freedom')
+        if verbose==True:print('alpha=0, using faster computation: fixing a rank degree of freedom')
         
         C= C+np.repeat(A[N-1,:][None],N,axis=0)+np.repeat(A[:,N-1].T[None],N,axis=0)
         D3 = np.zeros(A.shape)
@@ -60,7 +65,15 @@ def SpringRank(A,alpha=0.,l0=1.0,l1=1.0):
         B=np.dot(D2,One)+np.dot(D3,One)
         # A=D1-C
         A=scipy.sparse.csr_matrix(np.matrix(D1-C))
-        rank = scipy.sparse.linalg.spsolve(A,B)
+        if solver=='spsolve':
+            if verbose==True:print('Using scipy.sparse.linalg.spsolve(A,B)')
+            rank = scipy.sparse.linalg.spsolve(A,B)
+        elif solver=='bicgstab': 
+            if verbose==True:print('Using scipy.sparse.linalg.bicgstab(A,B)')
+            rank=scipy.sparse.linalg.bicgstab(A,B)[0]
+        else:
+            print('Using scipy.sparse.linalg.bicgstab(A,B)')
+            rank=scipy.sparse.linalg.bicgstab(A,B)[0]
         return np.transpose(rank)
         
 
