@@ -101,27 +101,19 @@ spring_rank_network <- function(N, beta, alpha, K, l0 = 0.5, l1 = 1.0) {
   Z <- 0
   for (i in 1:N) {
     for (j in 1:N) {
-      Z = Z + exp(-0.5 * beta * (scores[i] - scores[j] - l1)^2)
+      Z <- Z + exp(-0.5 * beta * (scores[i] - scores[j] - l1)^2)
     }
   }
-  C = (K*N)/Z
-  A = Matrix(0, N, N)
+  C <- (K*N)/Z
 
-  for (i in 1:N) {
-    for (j in 1:N) {
+  # for loops are slow in R so make a matrix of element-wise subtractions,
+  # each element i, j being scores[i]-scores[j]
+  # basically, trading off increased memory usage (dense matrix) for speed.
+  scores_mat <- matrix(1, length(scores), 1) %*% t(scores)
+  scores_mat <- scores_mat - scores - l1
+  H <- .5 * scores_mat^2
+  lambda <- C * exp(-1*beta*H)
+  A <- rpois(length(scores)^2, lambda) %>% matrix(nrow = dim(lambda)[1])
 
-      H_ij = .5 * (scores[i] - scores[j] - l1)^2
-      lambda_ij = C * exp(-1 * beta * H_ij)
-
-      A_ij = rpois(1, lambda_ij)
-
-      if (A_ij > 0) {
-        A[i, j] = A_ij
-      }
-    }
-  }
-
-  return(graph_from_adjacency_matrix(A, mode = "directed", weighted = TRUE))
+  return(graph_from_adjacency_matrix(A, mode = "directed", weighted = "weight"))
 }
-
-
