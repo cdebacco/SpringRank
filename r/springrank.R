@@ -2,7 +2,8 @@ library(igraph)
 library(Matrix)
 library(Rlinsolve)
 
-spring_rank <- function(A, alpha = 0, l0 = 1.0, l1 = 1.0, shift = TRUE) {
+spring_rank <- function(A, alpha = 0, l0 = 1.0, l1 = 1.0,
+                        shift = TRUE, solver = Rlinsolve::lsolve.bicgstab) {
   #' Core function for calculating SpringRank.
   #' Default parameters follow stanadard model.
   #'
@@ -13,6 +14,10 @@ spring_rank <- function(A, alpha = 0, l0 = 1.0, l1 = 1.0, shift = TRUE) {
   #' @param l1 Interaction springs' rest length.
   #' @param shift (Optional, default TRUE) normalize such that the lowest-ranked
   #'  node has a SpringRank value of zero.
+  #' @param solver (Optional, default Rlinsolve::bicgstab) your preferred
+  #' solver for Ax=B. Should be able to handle dgCMatrix sparse matrices.
+  #' if the solve is not from Rlinsolve may throw a spurious warning for
+  #' unused parameters.
   #'
   #' @return A vector of SpringRank scores for each node. Sort or order the
   #' vector for ordinal rankings of each node.
@@ -67,8 +72,10 @@ spring_rank <- function(A, alpha = 0, l0 = 1.0, l1 = 1.0, shift = TRUE) {
     A_ <- D1 - C
   }
 
-  rank <- lsolve.bicgstab(A_, B, verbose = F)
-  rank <- rank$x
+  rank <- solver(A_, B, verbose = F)
+  if (class(rank) == "list") {
+    rank <- rank$x # accomodates both Rlinsolve and Matrix solves
+  }
 
   if (shift) {
     rank <- rank - min(rank)
