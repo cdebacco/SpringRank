@@ -85,7 +85,7 @@ fprintf('%f seconds.\n',toc)
 
 fprintf('Running Katz centrality...\t')
 tic
-s_eig = eigenvectorCentrality(A);
+s_eig = eigenvectorCentrality(A,1e-6);
 fprintf('%f seconds.\n',toc)
 
 fprintf('Running MVR...\t\t\t')
