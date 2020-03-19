@@ -1,5 +1,5 @@
 '''
-Example of SPringRank usage
+Example of SpringRank usage
 
 From a given network, it extracts the SpringRank scores
 
@@ -7,7 +7,7 @@ From a given network, it extracts the SpringRank scores
 
 import networkx as nx
 import numpy as np
-import SpringRank_tools as sr
+from SpringRank import SpringRank
 import tools as tl
 
 network='US_CS'
@@ -25,13 +25,13 @@ G=tl.build_graph_from_adjacency(inadjacency)
 
 nodes=list(G.nodes())			#  determines the order of the entries of matrix A
 
-A=nx.to_numpy_matrix(G,nodelist=nodes)
+A = nx.to_scipy_sparse_matrix(G, dtype=float,nodelist=nodes)
 
 
 '''
 Extracts SpringRank
 '''
-rank=sr.SpringRank(A,alpha=alpha,l0=l0,l1=l1)
+rank=SpringRank(A,alpha=alpha,l0=l0,l1=l1)
 
 rank=tl.shift_rank(rank)   # (optional) shifts so that the min is in zero and the others are positive
 
