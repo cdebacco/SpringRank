@@ -23,7 +23,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ## What's included:
 - `python` : Python code and a test script.
 - `matlab` : MATLAB code and a test script.
-- `r` : R code.
+- `r` : R code and a test script..
 - `data` : Contains sample adjacency files to test the code and a sample result.
 
 ## Python Notes:
