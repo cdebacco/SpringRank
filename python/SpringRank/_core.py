@@ -8,7 +8,6 @@ import warnings
 import numpy as np
 import scipy.sparse
 import scipy.sparse.linalg
-import sparse
 
 
 def build_from_dense(A, alpha, l0, l1):
