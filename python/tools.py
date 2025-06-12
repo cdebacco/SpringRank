@@ -57,8 +57,8 @@ def eqs39(beta,s,A):
     N = np.shape(A)[0]
     x = 0
     for i in range(N):
-        for j in range(N):
-            if A[i,j] == 0:
+        for j in range(i+1,N): 
+            if (A[i,j] == 0) & (A[j,i] == 0):
                 continue
             else:
                 x += (s[i]-s[j]) * ( A[i,j] - (A[i,j]+A[j,i]) / (1+np.exp(-2*beta*(s[i]-s[j]))) )
